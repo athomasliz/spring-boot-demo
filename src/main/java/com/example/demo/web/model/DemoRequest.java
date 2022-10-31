@@ -3,7 +3,7 @@ package com.example.demo.web.model;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 public class DemoRequest {
-    @Schema(example="Hello World", required = false, title="Input Parameter 1")
+    @Schema(example="Alan", required = false, title="Input Parameter 1")
     private String inputParam1;
 
     public String getInputParam1() {
