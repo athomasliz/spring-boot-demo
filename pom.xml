@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.0-SNAPSHOT</version>
+		<version>2.7.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
@@ -63,12 +63,14 @@
 			<id>uat</id>
 			<properties>
 				<spring.profiles.active>uat</spring.profiles.active>
+				<resources.dir>uat</resources.dir>
 			</properties>
 		</profile>
 		<profile>
 			<id>production</id>
 			<properties>
 				<spring.profiles.active>production</spring.profiles.active>
+				<resources.dir>production</resources.dir>
 			</properties>
 		</profile>
 	</profiles>
@@ -76,17 +78,17 @@
 	<build>
 		<resources>
 			<resource>
-				<directory>src/main/resources</directory>
-				<excludes>
-					<exclude>application*.yml</exclude>
-				</excludes>
+				<directory>src/main/resources/${resources.dir}</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**.*</include>
+				</includes>
 			</resource>
 			<resource>
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 				<includes>
 					<include>application.yml</include>
-					<include>application-${spring.profiles.active}.yml</include>
 				</includes>
 			</resource>
 		</resources>
@@ -94,6 +96,16 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<nonFilteredFileExtensions>
+						<nonFilteredFileExtension>jks</nonFilteredFileExtension>
+					</nonFilteredFileExtensions>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
