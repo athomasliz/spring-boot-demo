@@ -1,6 +1,6 @@
-package com.example.demo.service.messaging.kafka;
+package org.irushu.demo.service.messaging.kafka;
 
-import com.example.demo.web.model.DemoRequest;
+import org.irushu.demo.web.model.DemoRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -20,7 +20,7 @@ public class DemoConsumerService {
 
         MessageHeaders headers = message.getHeaders();
 
-        logger.info(String.format("Partition Id:%s | Received Timestamp: %s", headers.get(KafkaHeaders.RECEIVED_PARTITION_ID),headers.get(KafkaHeaders.RECEIVED_TIMESTAMP)));
+        logger.info(String.format("Partition Id:%s | Received Timestamp: %s", headers.get(KafkaHeaders.RECEIVED_PARTITION),headers.get(KafkaHeaders.RECEIVED_TIMESTAMP)));
 
     }
 }

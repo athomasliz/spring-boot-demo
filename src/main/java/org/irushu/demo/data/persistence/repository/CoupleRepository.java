@@ -1,6 +1,6 @@
-package com.example.demo.data.persistence.repository;
+package org.irushu.demo.data.persistence.repository;
 
-import com.example.demo.data.persistence.model.Couple;
+import org.irushu.demo.data.persistence.model.Couple;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

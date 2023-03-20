@@ -1,6 +1,6 @@
-package com.example.demo.service.messaging.kafka;
+package org.irushu.demo.service.messaging.kafka;
 
-import com.example.demo.web.model.DemoRequest;
+import org.irushu.demo.web.model.DemoRequest;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 

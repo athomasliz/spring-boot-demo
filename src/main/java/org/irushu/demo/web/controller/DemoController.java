@@ -1,9 +1,9 @@
-package com.example.demo.web.controller;
+package org.irushu.demo.web.controller;
 
-import com.example.demo.service.CoupleService;
-import com.example.demo.service.messaging.kafka.DemoProducerService;
-import com.example.demo.web.model.DemoRequest;
-import com.example.demo.web.model.DemoResponse;
+import org.irushu.demo.service.CoupleService;
+import org.irushu.demo.service.messaging.kafka.DemoProducerService;
+import org.irushu.demo.web.model.DemoRequest;
+import org.irushu.demo.web.model.DemoResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package com.example.demo.web.model;
+package org.irushu.demo.web.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
