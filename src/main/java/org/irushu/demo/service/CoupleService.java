@@ -1,7 +1,7 @@
-package com.example.demo.service;
+package org.irushu.demo.service;
 
-import com.example.demo.data.persistence.model.Couple;
-import com.example.demo.data.persistence.repository.CoupleRepository;
+import org.irushu.demo.data.persistence.model.Couple;
+import org.irushu.demo.data.persistence.repository.CoupleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

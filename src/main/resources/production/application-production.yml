@@ -38,7 +38,7 @@ logging:
   level:
     root:  error
     org.springframework:  info
-    com.example.demo:  info
+    org.irushu.demo:  info
 
 swagger:
   enable: true

@@ -1,6 +1,6 @@
-package com.example.demo.data.persistence.model;
+package org.irushu.demo.data.persistence.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="couple")
