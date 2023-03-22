@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <property name="log.dir" value="./logs"/>
-    <property name="log.name" value="name-checking"/>
-    <property name="log.base.package" value="com.ebshk.namechecking"/>
+    <property name="log.name" value="demo"/>
+    <property name="log.base.package" value="org.irushu.demo"/>
     <property name="log.level.console" value="all"/>
     <property name="rolling.pattern" value="%d{yyyy-MM-dd}"/>
     <property name="layout.pattern" value="%-5p %d [%t] %c{50} > %m%n"/>
