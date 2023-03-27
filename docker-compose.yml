@@ -50,12 +50,11 @@ services:
     volumes:
       - db:/var/lib/mysql
       - ./docker-mysql/db/init.sql:/docker-entrypoint-initdb.d/init.sql
-  api:
-    container_name: spring-boot-demo
+  api-demo:
+    image: org.irushu/spring-boot-demo
     build:
       context: ./
       dockerfile: Dockerfile
-    image: org.irushu/spring-boot-demo
     depends_on:
       - mysqldb
       - kafka
