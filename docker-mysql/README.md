@@ -7,7 +7,7 @@ mysql -uroot -p
 show databases;
 docker stop mysql-docker
 
-docker-compose -f docker-compose-mysql-only.yml up
-docker-compose -f docker-compose-mysql-only.yml down
+docker-compose up
+docker-compose down
 
 [spring-boot-demo]
