@@ -3,21 +3,21 @@ package org.irushu.demo.web.model;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 public class DemoRequest {
-    @Schema(example="Alan", required = false, title="Input Parameter 1")
-    private String inputParam1;
+    @Schema(example= "A", required = false, title="Input")
+    private String input;
 
-    public String getInputParam1() {
-        return inputParam1;
+    public String getInput() {
+        return input;
     }
 
-    public void setInputParam1(String inputParam1) {
-        this.inputParam1 = inputParam1;
+    public void setInput(String input) {
+        this.input = input;
     }
 
     @Override
     public String toString() {
         return "DemoRequest{" +
-                "inputParam1='" + inputParam1 + '\'' +
+                "input='" + input + '\'' +
                 '}';
     }
 }

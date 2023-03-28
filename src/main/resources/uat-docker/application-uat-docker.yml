@@ -19,7 +19,7 @@ spring:
           time_zone: GMT+8
   kafka:
     bootstrap-servers:
-    - 192.168.56.101:9092
+    - kafka:9092
     template:
       default-topic: topic.test
     consumer:
