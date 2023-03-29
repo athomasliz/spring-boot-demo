@@ -1,5 +1,6 @@
 package org.irushu.demo.web.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.irushu.demo.service.MysqlService;
 import org.irushu.demo.service.messaging.kafka.DemoProducerService;
 import org.irushu.demo.web.model.DemoRequest;
@@ -28,7 +29,7 @@ public class DemoController {
     private static Logger logger = LoggerFactory.getLogger(DemoController.class);
 
     @RequestMapping(value = "/echo", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    @Operation(summary = "An echo function that returns the input value.", description = "The value in output is the same as the value in input.")
+    @Operation(summary = "An echo function that returns the input value.", description = "The value in output is the same as the value in input.", security = @SecurityRequirement(name = "bearerAuth"))
     public DemoResponse echo(@RequestBody DemoRequest demoRequest)
     {
         DemoResponse demoResponse = new DemoResponse();
@@ -37,7 +38,7 @@ public class DemoController {
     }
 
     @RequestMapping(value = "/findInMysql", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    @Operation(summary = "Find in Mysql", description = "")
+    @Operation(summary = "Find in Mysql", description = "", security = @SecurityRequirement(name = "bearerAuth"))
     public DemoResponse findInMysql(@RequestBody DemoRequest demoRequest)
     {
         DemoResponse demoResponse = new DemoResponse();
@@ -46,7 +47,7 @@ public class DemoController {
     }
 
     @RequestMapping(value = "/kafkaProducer", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    @Operation(summary = "Input message.", description = "")
+    @Operation(summary = "Input message.", description = "", security = @SecurityRequirement(name = "bearerAuth"))
     public DemoResponse kafkaProducer(@RequestBody DemoRequest demoRequest)
     {
         demoProducerService.send(demoRequest);

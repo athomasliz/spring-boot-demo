@@ -1,4 +1,4 @@
-package org.irushu.demo.data.persistence.model;
+package org.irushu.demo.persistence.model;
 
 import jakarta.persistence.*;
 

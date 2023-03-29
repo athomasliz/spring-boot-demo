@@ -1,6 +1,6 @@
-package org.irushu.demo.data.persistence.repository;
+package org.irushu.demo.persistence.repository;
 
-import org.irushu.demo.data.persistence.model.Mysql;
+import org.irushu.demo.persistence.model.Mysql;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

@@ -1,7 +1,7 @@
 package org.irushu.demo.service;
 
-import org.irushu.demo.data.persistence.model.Mysql;
-import org.irushu.demo.data.persistence.repository.MysqlRepository;
+import org.irushu.demo.persistence.model.Mysql;
+import org.irushu.demo.persistence.repository.MysqlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
