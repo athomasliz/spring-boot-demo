@@ -1,5 +1,7 @@
 package org.irushu.demo.security;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,6 +18,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class CustomAuthenticationManager implements AuthenticationManager {
 
+    private static Logger logger = LoggerFactory.getLogger(CustomAuthenticationManager.class);
+
     @Autowired
     private UserDetailsService userDetailsService;
 
@@ -26,7 +30,17 @@ public class CustomAuthenticationManager implements AuthenticationManager {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        final UserDetails userDetail = userDetailsService.loadUserByUsername(authentication.getName());
+        logger.info("cp0");
+        UserDetails userDetail=null;
+        try {
+            userDetail = userDetailsService.loadUserByUsername(authentication.getName());
+            logger.info(userDetail.getUsername());
+            logger.info(userDetail.getPassword());
+            logger.info("cp1");
+        }catch(Throwable t){
+            logger.error("",t);
+        }
+
         if (!passwordEncoder().matches(authentication.getCredentials().toString(), userDetail.getPassword())) {
             throw new BadCredentialsException("Wrong password");
         }

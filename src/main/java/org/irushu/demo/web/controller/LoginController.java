@@ -1,7 +1,10 @@
 package org.irushu.demo.web.controller;
 
+import org.irushu.demo.security.CustomAuthenticationManager;
 import org.irushu.demo.service.JwtService;
 import org.irushu.demo.web.model.UserCredentials;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
 
+    private static Logger logger = LoggerFactory.getLogger(LoginController.class);
+
     @Autowired
     private JwtService jwtService;
 
@@ -25,7 +30,7 @@ public class LoginController {
     @RequestMapping(value="/login", method= RequestMethod.POST)
     public ResponseEntity<?> getToken(@RequestBody UserCredentials credentials) {
 
-        UsernamePasswordAuthenticationToken creds = new UsernamePasswordAuthenticationToken(
+       UsernamePasswordAuthenticationToken creds = new UsernamePasswordAuthenticationToken(
                         credentials.getUsername(),
                         credentials.getPassword());
 
