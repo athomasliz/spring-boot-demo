@@ -72,7 +72,7 @@ services:
     links:
       - mysqldb
     volumes:
-      - ./:/app/src
+      - ./logs:/app/logs
 volumes:
   db:
     driver: local
