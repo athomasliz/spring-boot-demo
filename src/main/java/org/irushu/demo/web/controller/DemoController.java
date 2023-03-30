@@ -24,11 +24,11 @@ public class DemoController {
     private MysqlService mysqlService;
 
     @Autowired
-    private KafkaProducerService demoProducerService;
+    private KafkaProducerService kafkaProducerService;
 
     private static Logger logger = LoggerFactory.getLogger(DemoController.class);
 
-    @RequestMapping(value = "/echo", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/00-echo", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "An echo function that returns the input value.", description = "The value in output is the same as the value in input.", security = @SecurityRequirement(name = "bearerAuth"))
     public DemoResponse echo(@RequestBody DemoRequest demoRequest)
     {
@@ -37,20 +37,20 @@ public class DemoController {
         return demoResponse;
     }
 
-    @RequestMapping(value = "/findInMysql", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    @Operation(summary = "Find in Mysql", description = "", security = @SecurityRequirement(name = "bearerAuth"))
-    public DemoResponse findInMysql(@RequestBody DemoRequest demoRequest)
+    @RequestMapping(value = "/01-mysql", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(summary = "Search data in Mysql DB.", description = "", security = @SecurityRequirement(name = "bearerAuth"))
+    public DemoResponse mysql(@RequestBody DemoRequest demoRequest)
     {
         DemoResponse demoResponse = new DemoResponse();
         demoResponse.setOutput(mysqlService.findByInput(demoRequest.getInput()));
         return demoResponse;
     }
 
-    @RequestMapping(value = "/kafkaProducer", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    @Operation(summary = "Input message.", description = "", security = @SecurityRequirement(name = "bearerAuth"))
-    public DemoResponse kafkaProducer(@RequestBody DemoRequest demoRequest)
+    @RequestMapping(value = "/02-kafka", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(summary = "Send and Receive message through Kafka topic.", description = "", security = @SecurityRequirement(name = "bearerAuth"))
+    public DemoResponse kafka(@RequestBody DemoRequest demoRequest)
     {
-        demoProducerService.send(demoRequest);
+        kafkaProducerService.send(demoRequest);
         DemoResponse demoResponse = new DemoResponse();
         demoResponse.setOutput("Message successfully sent to Kafka Topic");
         return demoResponse;

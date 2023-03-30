@@ -92,13 +92,6 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>uat-docker</id>
-			<properties>
-				<spring.profiles.active>uat-docker</spring.profiles.active>
-				<resources.dir>uat-docker</resources.dir>
-			</properties>
-		</profile>
-		<profile>
 			<id>prod</id>
 			<properties>
 				<spring.profiles.active>prod</spring.profiles.active>
