@@ -12,7 +12,7 @@ import java.util.Date;
 
 @Component
 
-public class JwtService {
+public class JWTService {
 
     static final long EXPIRATIONTIME = 86400000; // 1
 

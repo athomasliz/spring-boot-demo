@@ -1,15 +1,15 @@
-package org.irushu.demo.service.messaging.kafka;
+package org.irushu.demo.service;
 
 import org.irushu.demo.web.model.DemoRequest;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DemoProducerService {
+public class KafkaProducerService {
 
     private final KafkaTemplate<String, DemoRequest> kafkaTemplate;
 
-    public DemoProducerService(KafkaTemplate<String, DemoRequest> kafkaTemplate) {
+    public KafkaProducerService(KafkaTemplate<String, DemoRequest> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 

@@ -1,4 +1,4 @@
-package org.irushu.demo.service.messaging.kafka;
+package org.irushu.demo.service;
 
 import org.irushu.demo.web.model.DemoRequest;
 import org.slf4j.Logger;
@@ -10,8 +10,8 @@ import org.springframework.messaging.MessageHeaders;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DemoConsumerService {
-    private static Logger logger = LoggerFactory.getLogger(DemoConsumerService.class);
+public class KafkaConsumerService {
+    private static Logger logger = LoggerFactory.getLogger(KafkaConsumerService.class);
 
     @KafkaListener(topics = "topic.test", groupId="group1")
     public void consume(DemoRequest demoRequest, Message<DemoRequest> message)
@@ -21,6 +21,5 @@ public class DemoConsumerService {
         MessageHeaders headers = message.getHeaders();
 
         logger.info(String.format("Partition Id:%s | Received Timestamp: %s", headers.get(KafkaHeaders.RECEIVED_PARTITION),headers.get(KafkaHeaders.RECEIVED_TIMESTAMP)));
-
     }
 }

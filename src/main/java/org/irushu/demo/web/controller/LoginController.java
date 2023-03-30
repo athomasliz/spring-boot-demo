@@ -1,7 +1,6 @@
 package org.irushu.demo.web.controller;
 
-import org.irushu.demo.security.CustomAuthenticationManager;
-import org.irushu.demo.service.JwtService;
+import org.irushu.demo.service.JWTService;
 import org.irushu.demo.web.model.UserCredentials;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +21,7 @@ public class LoginController {
     private static Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     @Autowired
-    private JwtService jwtService;
+    private JWTService jwtService;
 
     @Autowired
     AuthenticationManager authenticationManager;

@@ -4,10 +4,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.irushu.demo.service.JwtService;
-import org.irushu.demo.web.controller.DemoController;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.irushu.demo.service.JWTService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,7 +16,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 @Component
 public class AuthenticationFilter extends OncePerRequestFilter {
     @Autowired
-    private JwtService jwtService;
+    private JWTService jwtService;
 
 
     @Override

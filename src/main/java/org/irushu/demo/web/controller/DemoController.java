@@ -2,7 +2,7 @@ package org.irushu.demo.web.controller;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.irushu.demo.service.MysqlService;
-import org.irushu.demo.service.messaging.kafka.DemoProducerService;
+import org.irushu.demo.service.KafkaProducerService;
 import org.irushu.demo.web.model.DemoRequest;
 import org.irushu.demo.web.model.DemoResponse;
 import io.swagger.v3.oas.annotations.Operation;
@@ -24,7 +24,7 @@ public class DemoController {
     private MysqlService mysqlService;
 
     @Autowired
-    private DemoProducerService demoProducerService;
+    private KafkaProducerService demoProducerService;
 
     private static Logger logger = LoggerFactory.getLogger(DemoController.class);
 
