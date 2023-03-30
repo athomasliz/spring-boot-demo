@@ -31,15 +31,8 @@ public class CustomAuthenticationManager implements AuthenticationManager {
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         logger.info("cp0");
-        UserDetails userDetail=null;
-        try {
-            userDetail = userDetailsService.loadUserByUsername(authentication.getName());
-            logger.info(userDetail.getUsername());
-            logger.info(userDetail.getPassword());
-            logger.info("cp1");
-        }catch(Throwable t){
-            logger.error("",t);
-        }
+        UserDetails userDetail = userDetailsService.loadUserByUsername(authentication.getName());
+        logger.info("cp1");
 
         if (!passwordEncoder().matches(authentication.getCredentials().toString(), userDetail.getPassword())) {
             throw new BadCredentialsException("Wrong password");
