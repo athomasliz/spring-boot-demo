@@ -100,14 +100,14 @@
 			<id>uat</id>
 			<properties>
 				<spring.profiles.active>uat</spring.profiles.active>
-				<resources.dir>uat</resources.dir>
+				<resources.dir>env/uat</resources.dir>
 			</properties>
 		</profile>
 		<profile>
 			<id>prod</id>
 			<properties>
 				<spring.profiles.active>prod</spring.profiles.active>
-				<resources.dir>prod</resources.dir>
+				<resources.dir>env/prod</resources.dir>
 			</properties>
 		</profile>
 	</profiles>
