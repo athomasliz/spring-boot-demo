@@ -3,6 +3,7 @@ package org.irushu.demo.web.controller;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.irushu.demo.service.MysqlService;
 import org.irushu.demo.service.KafkaProducerService;
+import org.irushu.demo.service.RedisCounterService;
 import org.irushu.demo.web.model.DemoRequest;
 import org.irushu.demo.web.model.DemoResponse;
 import io.swagger.v3.oas.annotations.Operation;
@@ -19,14 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/demo/")
 
 public class DemoController {
-
+    private static Logger logger = LoggerFactory.getLogger(DemoController.class);
     @Autowired
     private MysqlService mysqlService;
-
     @Autowired
     private KafkaProducerService kafkaProducerService;
-
-    private static Logger logger = LoggerFactory.getLogger(DemoController.class);
+    @Autowired
+    private RedisCounterService redisCounterService;
 
     @RequestMapping(value = "/00-echo", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "An echo function that returns the input value.", description = "The value in output is the same as the value in input.", security = @SecurityRequirement(name = "bearerAuth"))
@@ -56,4 +56,13 @@ public class DemoController {
         return demoResponse;
     }
 
+    @RequestMapping(value = "/03-redis", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(summary = "Increment through Redis cache.", description = "", security = @SecurityRequirement(name = "bearerAuth"))
+    public DemoResponse redis(@RequestBody DemoRequest demoRequest)
+    {
+        Long value = redisCounterService.count(demoRequest.getInput());
+        DemoResponse demoResponse = new DemoResponse();
+        demoResponse.setOutput(value.toString());
+        return demoResponse;
+    }
 }

@@ -22,6 +22,16 @@ spring:
       - 192.168.56.101:9092
     template:
       default-topic: topic.test
+  redis:
+    host: redis
+    port: 6379
+    timeout: 20000
+    pool:
+      max-active: 8
+      min-idle: 0
+      max-idle: 8
+      max-wait: -1
+    password:
 
 server:
   port: 8080
